@@ -1,0 +1,3 @@
+<%= form_for(@staff) do |f| %>
+  <%= f.collection_select :name, @staffs, :id, :name %>
+<% end %>
