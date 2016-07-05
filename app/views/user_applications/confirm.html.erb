@@ -1,0 +1,36 @@
+<%= form_for @user_application do |f| %>
+  <div class="field">
+    name: <%= @user_application.name %><br>
+    <%= f.hidden_field :name %>
+  </div>
+  <div class="field">
+    pref: <%= @user_application.pref %><br>
+    <%= f.hidden_field :pref %>
+  </div>
+  <div class="field">
+    city: <%= @user_application.city %><br>
+    <%= f.hidden_field :city %>
+  </div>
+  <div class="field">
+    town: <%= @user_application.town %><br>
+    <%= f.hidden_field :town %>
+  </div>
+  <div class="field">
+    tel: <%= @user_application.tel %><br>
+    <%= f.hidden_field :tel %>
+  </div>
+  <div class="field">
+    participant_num: <%= @user_application.participant_num %><br>
+    <%= f.hidden_field :participant_num, min: 1, max: 100 %>
+  </div>
+  <div class="field">
+    staff_name: <%= @user_application.staff.name %><br>
+    <%= f.hidden_field :staff_id %>
+  </div>
+    <div class="actions">
+    <%= f.submit 'Back!', name: 'back' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'create!' %>
+  </div>
+<% end %>

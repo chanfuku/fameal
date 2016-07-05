@@ -15,12 +15,16 @@ class UserApplicationsController < ApplicationController
   # GET /user_applications/new
   def new
     @user_application = UserApplication.new
-    @staffs = Staff.select(:id, :name).distinct
+  end
+
+  # POST /user_application/confirm
+  def confirm
+    @user_application = UserApplication.new(user_application_params)
+    render :new if @user_application.invalid?
   end
 
   # GET /user_applications/1/edit
   def edit
-    @staffs = Staff.select(:id, :name).distinct
   end
 
   # POST /user_applications
@@ -28,14 +32,12 @@ class UserApplicationsController < ApplicationController
   def create
     @user_application = UserApplication.new(user_application_params)
 
-    respond_to do |format|
-      if @user_application.save
-        format.html { redirect_to @user_application, notice: 'User application was successfully created.' }
-        format.json { render :show, status: :created, location: @user_application }
-      else
-        format.html { render :new }
-        format.json { render json: @user_application.errors, status: :unprocessable_entity }
-      end
+    if params[:back]
+      render :new
+    elsif @user_application.save
+      redirect_to @user_application, notice: 'User application was successfully created.'
+    else
+      render :new
     end
   end
 
