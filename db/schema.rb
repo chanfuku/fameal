@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160704083241) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "staffs", force: :cascade do |t|
     t.string   "name"
     t.text     "message"
@@ -32,6 +35,6 @@ ActiveRecord::Schema.define(version: 20160704083241) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "user_applications", ["staff_id"], name: "index_user_applications_on_staff_id"
+  add_index "user_applications", ["staff_id"], name: "index_user_applications_on_staff_id", using: :btree
 
 end
