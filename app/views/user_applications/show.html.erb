@@ -26,6 +26,11 @@
 </p>
 
 <p>
+  <strong>Email:</strong>
+  <%= @user_application.email %>
+</p>
+
+<p>
   <strong>Participant num:</strong>
   <%= @user_application.participant_num %>
 </p>
@@ -35,5 +40,5 @@
   <%= @user_application.staff.name %>
 </p>
 
-<%= link_to 'Edit', edit_user_application_path(@user_application) %> |
+<!-- <%= link_to 'Edit', edit_user_application_path(@user_application) %> | -->
 <%= link_to 'Back', user_applications_path %>

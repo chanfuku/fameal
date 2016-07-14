@@ -68,11 +68,12 @@ class UserApplicationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_application
+      puts("params[:id]は", params[:id])
       @user_application = UserApplication.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_application_params
-      params.require(:user_application).permit(:name, :pref, :city, :town, :tel, :participant_num, :staff_id)
+      params.require(:user_application).permit(:name, :pref, :city, :town, :tel, :email, :participant_num, :staff_id)
     end
 end

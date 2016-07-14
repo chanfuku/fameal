@@ -4,4 +4,7 @@ class Staff < ActiveRecord::Base
 
   validates :message,
     presence: { message: 'は必須です'}
+
+  validates :email,
+    presence: true
 end

@@ -16,6 +16,9 @@ class UserApplication < ActiveRecord::Base
   validates :tel,
     presence: true
 
+  validates :email,
+    presence: true
+
   validates :participant_num,
     presence: true,
     numericality: { only_integer: true, greater_than: 0 }

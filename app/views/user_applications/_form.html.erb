@@ -1,5 +1,4 @@
 <%= form_for @user_application, url: {action: 'confirm'} do |f| %>
-  <% @staffs = Staff.select(:id, :name).distinct %>
   <% if @user_application.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_application.errors.count, "error") %> prohibited this user_application from being saved:</h2>
@@ -33,9 +32,14 @@
     <%= f.telephone_field :tel %>
   </div>
   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
     <%= f.label :participant_num %><br>
     <%= f.number_field :participant_num, min: 1, max: 100 %>
   </div>
+  <% @staffs = Staff.select(:id, :name).distinct %>
   <div class="field">
     <%= f.label :staff_id %><br>
     <%= f.collection_select :staff_id, @staffs, :id, :name, :prompt => "選択してください" %>

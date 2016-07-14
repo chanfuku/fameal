@@ -20,6 +20,10 @@
     <%= f.hidden_field :tel %>
   </div>
   <div class="field">
+    email: <%= @user_application.email %><br>
+    <%= f.hidden_field :email %>
+  </div>
+  <div class="field">
     participant_num: <%= @user_application.participant_num %><br>
     <%= f.hidden_field :participant_num, min: 1, max: 100 %>
   </div>
@@ -31,6 +35,6 @@
     <%= f.submit 'Back!', name: 'back' %>
   </div>
   <div class="actions">
-    <%= f.submit 'create!' %>
+    <%= f.submit '登録' %>
   </div>
 <% end %>
